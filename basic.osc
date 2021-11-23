@@ -1,0 +1,291 @@
+% this is the basic math functions 
+
+
+%% normal letters are just normal letters : 
+a 'a' spc;
+b 'b' spc;
+c 'c' spc;
+d 'd' spc;
+e 'e' spc;
+f 'f' spc;
+g 'g' spc;
+h 'h' spc;
+i 'i' spc;
+j 'j' spc;
+k 'k' spc;
+l 'l' spc;
+m 'm' spc;
+n 'n' spc;
+o 'o' spc;
+p 'p' spc;
+q 'q' spc;
+r 'r' spc;
+s 's' spc;
+t 't' spc;
+u 'u' spc;
+v 'v' spc;
+w 'w' spc;
+x 'x' spc;
+y 'y' spc;
+z 'z' spc;
+
+
+A 'A' spc;
+B 'B' spc;
+C 'C' spc;
+D 'D' spc;
+E 'E' spc;
+F 'F' spc;
+G 'G' spc;
+H 'H' spc;
+I 'I' spc;
+J 'J' spc;
+K 'K' spc;
+L 'L' spc;
+M 'M' spc;
+N 'N' spc;
+O 'O' spc;
+P 'P' spc;
+Q 'Q' spc;
+R 'R' spc;
+S	'S' spc;
+T 'T' spc;
+U 'U' spc;
+V 'V' spc;
+W 'W' spc;
+X 'X' spc;
+Y 'Y' spc;
+Z 'Z' spc;
+
+
+%% from here on are the Greek Alphabets:
+psi '\psi' spc;
+phi '\phi' spc;
+Psi '\Psi' spc;
+Phi '\Phi' spc;
+dlt '\delta' spc;
+Dlt '\Delta' spc;
+vrp '\varphi' spc; 
+ep  '\epsilon' spc;
+vep '\varepsilon' spc;
+om 	'\omega' spc;
+Om 	'\Omega' spc ;
+sg 	'\sigma' spc ;
+Sg 	'\Sigma' spc ;
+al 	'\alpha' spc ;
+bta '\beta' spc ;
+eta '\eta' spc;
+mu 	'\mu' spc;
+nv 	'\nu' spc ;
+th 	'\theta' spc ;
+Th 	'\Theta' spc ;
+la 	'\lambda' spc ;
+La 	'\Lambda' spc ;
+tau '\tau' spc ;
+rho '\rho' spc ;
+xi 	'\xi' spc ;
+chi '\chi' spc ;
+gm 	'\gamma' spc ;
+Gm 	'\Gamma' spc ;
+vkp '\varkappa' spc ;
+kap '\kappa' spc ;
+Kap '\Kappa' spc ;
+hb 	'\hbar' spc ;
+zeta '\zeta' spc;
+nabla '\nabla' spc ;
+
+
+^ "^" rp {#1};
+_ "_" rp {#1};
+by '/';
+
+
+mspc "\ ";
+m2spc  mspc mspc ;
+m4spc  m2spc m2spc ;
+m8spc  m4spc m4spc ;
+tx '\text' rp{ #1 } ;
+bpMtx '\begin'rp{'pmatrix'}spc; 
+epMtx '\end'rp{'pmatrix'}spc ; 
+Mtx  bpMtx NL #1 epMtx NL; 
+
+bbMtx '\begin' rp 'bmatrix' spc; 
+ebMtx '\end' rp 'bmatrix' spc; 
+bMtx  bbMtx NL #1 ebMtx NL; 
+
+det tx 'det' mspc;
+% this vMtx will give the |A| look 
+vMtx  '\begin' rp 'vmatrix' spc NL 
+		#1  '\end' rp 'vmatrix' NL; 
+
+etc '......' spc ;
+etc3 '...' spc ;
+bp '\left' (  #1 '\right' ) ;  
+bb '\left' [  #1 '\right' ] ;  
+ii '\ii' spc;
+ee '\ee' spc;
+pi '\pi' spc;
+dag 	'\dagger spc';
+conj  #1 '^' *; 
+cont  #1 '^' dag; 
+tr 	 tx 'Tr' ( #0 ) ; 
+tran  #1 '^' T;
+pm '\pm' spc;
+mp '\mp' spc;
+btms  '\bigotimes'   spc ;  
+otms	'\otimes' spc;
+
+%% mathematical functions 
+neq '\neq' spc ;
+geq '\geq' spc ;
+leq '\leq' spc ;
+gg  '\gg' spc ;
+ll  '\ll' spc ;
+approx '\approx' spc;
+leqs '\leqslant' spc ;
+defto '\equiv' spc; 
+hat '\hat' rp #1;
+bar '\bar' rp #1 ; 
+sim '\overset' rp '\sim'   rp #1 ; 
+tcr '\overset' rp '\circ'  rp #1 ; 
+vec '\vec' rp #1;
+bold '\bold' rp #1;
+boldSymbol '\boldsymbol' rp #1;
+bvec boldSymbol #1 ; 
+%relations like vertical
+bot '\bot' spc ;  
+dot '\dot' spc #1;
+norm   spc | #1 |  spc ;
+norm2    norm #1 ^ 2  ;
+inv    rp #1 ^ {-1}   ;
+
+%% calculus related
+prt	'\partial' spc	; 
+pd  {  prt #1 } // { prt #2 } ;
+der  tx d ;
+pdn  { prt ^#3 #1 } // {  prt #2 ^ #3 } ;
+dd  { der #1 } // {der #2 } ; 
+ddt	 dd void t #1;
+dert  dd #1 t; % derivation by time t;
+deri  d( #1 );
+
+
+%% some concrete math things : 
+inf '\infty' spc ;
+
+lim  '\lim' spc ; 
+prod '\prod' spc ;
+sum '\sum' spc;
+int	 '\int' spc;   
+oint	'\oint' spc;   
+oiint	 '\oiint' spc;   
+vlb			'\bigg|' ;
+
+%%  possion braket:
+pb mrp { #1 , #2 } ;  
+
+% classic possion braket expanded:
+pbe	 pd #1 q pd #2 p spc  - spc  pd #1 p pd #2 q;   
+comu [ #1 , #2  ] ;
+comue #1  #2  - #2 #1  ;
+indot ( #1 , #2 ) ;
+
+
+%%mathcal symbols : 
+
+maT '\mathcal' rp T;
+maU '\mathcal' rp U;
+maH '\mathcal' rp H;
+maL '\mathcal' rp L;
+
+%%basic functions:
+
+exp  ee ^ #1 ;
+expr tx 'exp' ; 
+ln  tx 'ln' ; 
+log tx 'log' ; 
+log2  log _ 2 ; 
+sqrt '\sqrt' rp #1 ;
+
+
+%% trig functions
+
+cos '\cos' spc;
+sin '\sin' spc;
+tan '\tan' spc;
+atan '\arctan';
+tanh '\tanh';
+
+
+%% forall exists;
+
+forall 	'\forall' spc;
+exists 	'\exists' spc ;
+in 		 	'\in' spc;
+notin 	'\notin' spc;
+subset	'\subset' spc;
+supset	'\supset' spc;
+wedge 	'\wedge' spc;
+vee '\vee' spc;
+neg '\neg' spc;
+imp '\rightarrow' spc;
+Imp '\Rightarrow' spc;
+eqv '\leftrightarrow' spc ;
+Asg '\Leftarrow' spc ;
+vdash '\vdash' spc;
+QED Q.E.D spc;
+
+%% special simbols:
+
+arup '\uparrow ' ; 
+ardw '\downarrow ' ; 
+
+%% domains
+Natural '\mathds' rp N;
+Integer '\mathds' rp Z ;
+Complex '\mathds' rp C ;
+Real '\mathds' rp R ;
+realPart tx 'Re' [#1];
+imagPart tx 'Im' [#1];
+One '\mathds' rp 1 ;
+maE '\mathds' rp E ; 
+
+
+%%ms synbols
+msAny '\mathscr' rp #1 ; 
+msS '\msS' spc;
+msU '\msU' spc;
+msP '\msP' spc;
+msR '\msR' spc;
+msL '\msL' spc;
+msC '\msL' spc;
+msD '\msD' spc;
+
+
+%%specials : 
+
+
+lbl '\label' rp #1 ; % this are the labeling
+permute '\permute' rp #1 rp #2;
+updown '\updown' rp #1 rp #2;
+
+
+%% Dirac Symbols
+ket | #1 '\rangle' spc;
+bket '\left' | #1 '\right\rangle' spc;
+
+bra '\langle' spc  #1 | ;
+bbra '\left\langle' spc  #1 '\right|' ;
+
+mean '\langle' spc #1 '\rangle' spc ;
+bmean '\left\langle' spc #1 '\right\rangle' spc ;
+
+braket  rp { '\langle' spc #1 | #2  '\rangle' }  ; 
+bbraket  rp { '\left\langle' spc #1 vlb #2  '\right\rangle' }  ; 
+
+ketbra ket #1 bra #2 ; 
+bketbra bket #1 bbra #2 ; 
+
+
+
+
