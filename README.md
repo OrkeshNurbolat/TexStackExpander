@@ -133,4 +133,38 @@ $$
 \right)
 $$
 ```
+### writing or overriding with plain latex
+if you have something that have to be writen in latex
+ten you could just type this way
+```
+! <This string will be directly put into the latex>
+```
 
+for example
+```
+! by the \eqref{Ham} we know this is true
+```
+is just going to become a line in the output latex as
+
+```
+by the \eqref{Ham} we know this is true
+```
+
+### commenting
+to comment out things that you do not want to translate, just write
+```
+% <This is commented out not going to be translated>
+```
+but if you have writen this 
+```
+% ! test
+```
+this line would not be translated.
+However if you writed this : 
+```
+! % test
+```
+this line will be translated into the target output latex file as a line of comment as
+```
+% test
+```
